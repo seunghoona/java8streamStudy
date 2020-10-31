@@ -39,9 +39,12 @@ public class Main {
 
 
         System.out.println(collect.toString());
-        // 사이즈 제한
+        // 사이즈 제한git
+
         List<Map<String, Object>> collect1 = collect.stream().limit(2).collect(Collectors.toList());
         System.out.println(collect1);
+        //테스트 합니다.
+
 
     }
 
