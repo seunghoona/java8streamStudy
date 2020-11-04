@@ -16,8 +16,8 @@ public class Main {
 
 
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        stringObjectHashMap.put("adminIdx" ,"2");
-        stringObjectHashMap.put("exeAmt"  ,"4000000000");
+        stringObjectHashMap.put("adminIdx" ,"3");
+        stringObjectHashMap.put("exeAmt"  ,"4000000000000");
         stringObjectHashMap.put("exeDt"   ,"20200501");
         list.add(stringObjectHashMap);
 
@@ -39,11 +39,23 @@ public class Main {
 
 
         System.out.println(collect.toString());
-        // 사이즈 제한git
-
+        //2건만 가져오기
         List<Map<String, Object>> collect1 = collect.stream().limit(2).collect(Collectors.toList());
         System.out.println(collect1);
         //테스트 합니다.
+
+
+        long count = collect1.stream().count();
+
+        Map<Object, DoubleSummaryStatistics> collect2 = collect.stream().collect(Collectors.groupingBy(s -> s.get("adminIdx")
+                , Collectors.summarizingDouble(s -> Double.parseDouble(s.get("exeAmt").toString()))));
+
+
+
+        ///  계산 두개
+
+
+
 
 
     }
